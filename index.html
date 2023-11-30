@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calck Your Degree</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class = "main">
+        <div class= "form">
+
+            
+            <label for="per">PLEASE select the percentage: </label>
+            <select name="persite" id="per">
+                <option value="0.4">40%</option>
+                <option value="0.5">50%</option>
+            </select>
+            
+            <label for="txt">PLEASE Enter Your Degree: </label>
+            <input id="txt" type="number">
+            
+            <input id="btn" type="button" value="Calc" onclick="getResult()">
+        </div>
+    </div>
+    <script>
+
+        function getResult(){
+            if(document.getElementById('per').value == 0.4){
+                var resut = document.getElementById('txt').value;
+                let resutl = Math.abs(Math.round((resut * 0.4 - 60)/0.6));
+                let result2 = Math.abs(Math.round((resut * 0.4 - 50)/0.6));
+                alert("you need " + resutl + " point to pass \n and you need " + result2 + " to pass condaitinaly " );
+            }
+            else if(document.getElementById('per').value == 0.5){
+                var resut = document.getElementById('txt').value;
+                let resutl = Math.abs(Math.round((resut * 0.5 - 60)/0.5));
+                let result2 = Math.abs(Math.round((resut * 0.5 - 50)/0.5));
+                if(Math.abs(Math.round(resutl)) > 100){
+                    alert("you need " + resutl + " point to pass, which is in your dream");       
+                }else{
+                    alert("you need " + resutl + " point to pass\n and you need " + result2 + " to pass condaitinaly ");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
